@@ -6,10 +6,10 @@
 #       tag: latest
 
 resources:
-  - name: spring-boot-service
+  - name: repo
     type: git
     source:
-      uri: https://github.com/diwakar-k/cancourse_cicd
+      uri: https://github.com/azmathasan92/concourse-ci-cd.git
       branch: master
   - name: storage
     type: s3
@@ -42,20 +42,20 @@ jobs:
     public: true
 
     plan:
-      - get: spring-boot-service
+      - get: repo
         trigger: true
       - task: mvn-test
-        file: "spring-boot-service/concourse_ci/tasks/maven-test.yml"
+        file: "repo/concourse_ci/tasks/maven-test.yml"
 
   - name: package
     public: true
     serial: true
     plan:
-      - get: spring-boot-service
+      - get: repo
         trigger: true
         passed: [test]
       - task: mvn-package
-        file: "spring-boot-service/concourse_ci/tasks/maven-package.yml"
+        file: "repo/concourse_ci/tasks/maven-package.yml"
       - put: storage
         params:
           build: spring-boot-service-out
