@@ -9,7 +9,7 @@ resources:
   - name: spring-boot-service
     type: git
     source:
-      uri: https://github.com/azmathasan92/concourse-ci-cd.git
+      uri: https://github.com/diwakar-k/cancourse_cicd
       branch: master
   - name: storage
     type: s3
