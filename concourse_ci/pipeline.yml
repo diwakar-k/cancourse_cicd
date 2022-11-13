@@ -9,7 +9,7 @@ resources:
   - name: repo
     type: git
     source:
-      uri: https://github.com/azmathasan92/concourse-ci-cd.git
+      uri: https://github.com/diwakar-k/cancourse_cicd.git
       branch: master
   - name: storage
     type: s3
@@ -21,7 +21,7 @@ resources:
       # AWS Credentials are passed in command line on set-pipeline. Concourse can also use an external vault system to store credentials
       access_key_id: {{aws-access-key}}
       secret_access_key: {{aws-secret-key}}
-  # - name: spring-boot-service-docker-repository
+  # - name: repo-docker-repository
   #   type: docker-image
   #   source:
   #     email: ((docker-hub-email))
@@ -58,16 +58,16 @@ jobs:
         file: "repo/concourse_ci/tasks/maven-package.yml"
       - put: storage
         params:
-          build: spring-boot-service-out
+          build: repo-out
 
   # - name: deploy
   #   public: true
   #   serial: true
   #   plan:
-  #     - get: spring-boot-service
+  #     - get: repo
   #       trigger: false
   #       passed: [package]
 
   #     - put: kubectl
   #       params:
-  #         file: "spring-boot-service/spring-boot-deploy.yaml"
+  #         file: "repo/spring-boot-deploy.yaml"
