@@ -10,7 +10,7 @@ resources:
     type: git
     source:
       uri: https://github.com/diwakar-k/cancourse_cicd.git
-      branch: master
+      branch: main
   - name: storage
     type: s3
     source:
