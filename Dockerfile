@@ -30,7 +30,7 @@
 # ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=./target/dockerapp-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE= repo/target/dockerapp-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 # # include datadog java agent for APM integration

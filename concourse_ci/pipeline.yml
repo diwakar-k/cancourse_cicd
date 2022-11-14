@@ -39,14 +39,14 @@ resources:
   #     token: ((token))
 
 jobs:
-  - name: test
-    public: true
+  # - name: test
+  #   public: true
 
-    plan:
-      - get: repo
-        trigger: true
-      - task: mvn-test
-        file: "repo/concourse_ci/tasks/maven-test.yml"
+  #   plan:
+  #     - get: repo
+  #       trigger: true
+  #     - task: mvn-test
+  #       file: "repo/concourse_ci/tasks/maven-test.yml"
 
   # - name: test
   #   public: true
@@ -68,7 +68,7 @@ jobs:
     plan:
       - get: repo
         trigger: true
-        passed: [test]
+        # passed: [test]
       - task: mvn-package-task
         file: repo/concourse_ci/tasks/maven-package.yml
       - task: build-image-task
