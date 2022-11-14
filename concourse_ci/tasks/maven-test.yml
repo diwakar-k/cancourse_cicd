@@ -1,18 +1,18 @@
-# ---
-# platform: linux
+---
+platform: linux
 
-# image_resource:
-#   type: docker-image
-#   source:
-#     repository: maven
-#     tag: latest
-# inputs:
-#   - name: repo
+image_resource:
+  type: docker-image
+  source:
+    repository: maven
+    tag: latest
+inputs:
+  - name: repo
 
-# run:
-#   path: "mvn"
-#   args:
-#     - -f
-#     - repo/pom.xml
-#     - clean
-#     - test
+run:
+  path: "mvn"
+  args:
+    - -f
+    - repo/pom.xml
+    - clean
+    - test

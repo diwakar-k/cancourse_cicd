@@ -39,29 +39,44 @@ resources:
   #     token: ((token))
 
 jobs:
+  - name: test
+    public: true
+
+    plan:
+      - get: repo
+        trigger: true
+      - task: mvn-test
+        file: "repo/concourse_ci/tasks/maven-test.yml"
+
   # - name: test
   #   public: true
-
+  #   serial: true
   #   plan:
   #     - get: repo
   #       trigger: true
-  #     - task: mvn-test
-  #       file: "repo/concourse_ci/tasks/maven-test.yml"
-
-  - name: test
+  #       # passed: [test]
+  #     - task: mvn-package
+  #       file: "repo/concourse_ci/tasks/maven-package.yml"
+  #     - put: ecr-docker-reg
+  #       params:
+  #         build: repo
+  #         dockerfile: repo/Dockerfile
+    
+  - name: package-build-and-push
     public: true
     serial: true
     plan:
       - get: repo
         trigger: true
-        # passed: [test]
-      - task: mvn-package
-        file: "repo/concourse_ci/tasks/maven-package.yml"
+        passed: [test]
+      - task: mvn-package-task
+        file: repo/concourse_ci/tasks/maven-package.yml
+      - task: build-image-task
+        privileged: true # oci-build-task must run in a privileged container
+        file: epo/concourse_ci/tasks/build-image.yml
       - put: ecr-docker-reg
         params:
-          build: repo
-          dockerfile: repo/Dockerfile
-
+          load: image
   # - name: deploy
   #   public: true
   #   serial: true
