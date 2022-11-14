@@ -23,18 +23,18 @@
 # # COPY target/*.jar app.jar
 # ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ADD dockerapp-0.0.1-SNAPSHOT.jar app.jar
-RUN bash -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-
 # FROM openjdk:8-jdk-alpine
-# ARG JAR_FILE=./target/*.jar
-# COPY ${JAR_FILE} app.jar
+# VOLUME /tmp
+# ADD dockerapp-0.0.1-SNAPSHOT.jar app.jar
+# RUN bash -c 'touch /app.jar'
+# ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE=./target/dockerapp-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} app.jar
 
 # # include datadog java agent for APM integration
-# RUN curl -L 'https://github.com/DataDog/dd-trace-java/releases/latest/download/dd-java-agent.jar' -o dd-java-agent.jar
+RUN curl -L 'https://github.com/DataDog/dd-trace-java/releases/latest/download/dd-java-agent.jar' -o dd-java-agent.jar
 
-# ENTRYPOINT exec java $JAVA_OPTS  -jar /app.jar
-# #ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT exec java $JAVA_OPTS  -jar /app.jar
+#ENTRYPOINT ["java","-jar","/app.jar"]
