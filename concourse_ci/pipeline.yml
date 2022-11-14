@@ -76,7 +76,7 @@ jobs:
         file: repo/concourse_ci/tasks/build-image.yml
       - put: ecr-docker-reg
         params:
-          load: image/image.tar
+          load: image/image
   # - name: deploy
   #   public: true
   #   serial: true
