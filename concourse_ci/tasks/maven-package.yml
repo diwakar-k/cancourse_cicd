@@ -10,14 +10,18 @@ image_resource:
 inputs:
   - name: repo
 
+# run:
+#   path: "mvn"
+#   args:
+#     - -f
+#     - repo/pom.xml
+#     - clean
+#     - package
 run:
-  path: "mvn"
-  args:
-    - -f
-    - repo/pom.xml
-    - clean
-    - package
-    
+  path: /bin/sh
+  args: ["./repo/concourse_ci/tasks/maven.sh"]
 outputs:
-  - name: repo-out
-    path: repo
+  - name: repo-out   
+# outputs:
+#   - name: repo-out
+    # path: repo
