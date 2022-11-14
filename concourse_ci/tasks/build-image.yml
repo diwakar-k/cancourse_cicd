@@ -10,4 +10,4 @@ outputs:
 params:
   CONTEXT: repo-out
 run:
-  path: buil
+  path: build
