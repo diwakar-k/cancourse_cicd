@@ -59,7 +59,7 @@ jobs:
         file: "repo/concourse_ci/tasks/maven-package.yml"
       - put: ecr-docker-reg
         params:
-          build: ./repo
+          # build: ./repo
           dockerfile: repo/Dockerfile
 
   # - name: deploy

@@ -14,7 +14,11 @@
 	<name>springboot-file-upload-aws-s3</name>
 	<description>Spring Boot AWS S3 File Upload</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>19</java.version>
+		<maven.compiler.source>19</maven.compiler.source>
+		<maven.compiler.target>19</maven.compiler.target>
+		<spring-cloud.version>2021.0.4</spring-cloud.version>
+		<testcontainers.version>1.17.5</testcontainers.version>
 	</properties>
 	<dependencies>
 	
