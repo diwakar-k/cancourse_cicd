@@ -19,8 +19,8 @@ resources:
       # region_name: ap-south-1
       # filename of the application to read/write in S3 (check S3 resource documentation for parameters)
       # AWS Credentials are passed in command line on set-pipeline. Concourse can also use an external vault system to store credentials
-      access_key_id: {{aws-access-key}}
-      secret_access_key: {{aws-secret-key}}
+      aws_access_key_id: {{aws-access-key}}
+      aws_secret_access_key: {{aws-secret-key}}
       repository: 657757981076.dkr.ecr.us-east-1.amazonaws.com/test
   # - name: repo-docker-repository
   #   type: docker-image
