@@ -21,7 +21,7 @@ run:
   path: /bin/sh
   args: ["./repo/concourse_ci/tasks/maven.sh"]
 outputs:
-  - name: repo-out   
+  - name: repo  
 # outputs:
 #   - name: repo-out
     # path: repo
