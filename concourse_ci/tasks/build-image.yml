@@ -2,12 +2,17 @@ platform: linux
 image_resource:
   type: registry-image
   source:
-    repository: concourse/oci-build-task
-inputs:
-  - name: repo-out
-outputs:
-  - name: image
-params:
-  CONTEXT: repo-out
+    # repository: concourse/oci-build-task
+    repository: concourse/docker-image-resource
+# inputs:
+#   - name: repo-out
+# outputs:
+#   - name: image
+# params:
+#   CONTEXT: repo-out
 run:
-  path: build
+  path: /bin/sh
+  args: ["./repo/concourse_ci/tasks/ecr.sh"]
+
+outputs:
+  - name: repo 

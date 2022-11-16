@@ -15,8 +15,8 @@ resources:
     type: docker-image
     source:
       repository: 657757981076.dkr.ecr.us-east-1.amazonaws.com/test
-      aws_access_key_id: AKIAZSJLOJGKGDMNTXGJ
-      aws_secret_access_key: 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
+      aws_access_key_id: {{aws-access-key}}
+      aws_secret_access_key: {{aws-secret-key}}
       # Name of the bucket in S3 account
       # bucket: rishi-demo
       # region_name: ap-south-1
