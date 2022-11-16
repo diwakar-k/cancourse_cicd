@@ -1,10 +1,38 @@
+# ---
+# platform: linux
+
+# image_resource:
+#   type: docker-image
+#   source:
+#     repository: maven
+#     tag: latest
+
+# inputs:
+#   - name: repo
+
+# # run:
+# #   path: "mvn"
+# #   args:
+# #     - -f
+# #     - repo/pom.xml
+# #     - clean
+# #     - package
+# run:
+#   path: /bin/sh
+#   args: ["./repo/concourse_ci/tasks/maven.sh"]
+# outputs:
+#   - name: repo  
+# # outputs:
+# #   - name: repo-out
+#     # path: repo
+
 ---
 platform: linux
 
 image_resource:
   type: docker-image
   source:
-    repository: maven
+    repository: rguichard/fly
     tag: latest
 
 inputs:
@@ -21,7 +49,4 @@ run:
   path: /bin/sh
   args: ["./repo/concourse_ci/tasks/maven.sh"]
 outputs:
-  - name: repo  
-# outputs:
-#   - name: repo-out
-    # path: repo
+  - name: repo

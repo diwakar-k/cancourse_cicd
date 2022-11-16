@@ -4,13 +4,22 @@
 #     source: 
 #       repository: jmkarthik/concourse-kubectl-resource
 #       tag: latest
-
+resource_types:
+- name: git-branches
+  type: docker-image
+  source:
+    repository: vito/git-branches-resource
+# resources:
+#   - name: repo
+#     type: git
+#     source:
+#       uri: https://github.com/diwakar-k/cancourse_cicd.git
+#       branch: main
 resources:
   - name: repo
-    type: git
+    type: git-branches
     source:
-      uri: https://github.com/diwakar-k/cancourse_cicd.git
-      branch: main
+      uri: https://github.com/diwakar-k/concourse_test.git
   - name: ecr-docker-reg
     type: docker-image
     source:
