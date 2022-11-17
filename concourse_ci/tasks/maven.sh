@@ -23,5 +23,5 @@ for version in $NEW_VERSIONS; do
 # for version in $OLD_VERSIONS; do
 #   echo "Delete pipeline branch $version"
 #   fly -t your-concourse dp -n -p app-$version
-# done
+done
 
