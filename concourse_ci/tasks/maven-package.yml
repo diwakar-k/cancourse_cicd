@@ -40,4 +40,5 @@ inputs:
 outputs:
   - name: output
 run:
-  path: repo/concourse_ci/task/maven.sh
+  path: /bin/sh
+  args: ["./repo/concourse_ci/tasks/maven.sh"]
