@@ -93,16 +93,10 @@ jobs:
         file: repo/concourse_ci/tasks/maven-package.yml
       # - task: build-image-task
       #   privileged: true # oci-build-task must run in a privileged container
-      #   file: repo/concourse_ci/tasks/build-image.yml
-        on_failure:
-          put: repo
-          params:
-            path: repo
-            status: failure
-          
-      - put: ecr-docker-reg
-        params:
-          build: ./repo
+      #   file: repo/concourse_ci/tasks/build-image.yml   
+      # - put: ecr-docker-reg
+      #   params:
+      #     build: ./repo
   # - name: deploy
   #   public: true
   #   serial: true
