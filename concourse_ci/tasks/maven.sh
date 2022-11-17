@@ -7,9 +7,9 @@
 # # cp -a * ../repo
 
 #!/bin/bash
-ls 
-export NEW_VERSIONS=$(cat repo/branches/branches)
-export OLD_VERSIONS=$(cat repp/branches/removed)
+pwd
+export NEW_VERSIONS=$(cat branches)
+export OLD_VERSIONS=$(cat removed)
 
 fly login -t your-concourse -c http://localhost:8080 -u test -p test
 for version in $NEW_VERSIONS; do
