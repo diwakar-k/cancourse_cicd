@@ -36,7 +36,7 @@ image_resource:
     repository: rguichard/fly
     tag: latest
 inputs:
-  - name: repo/branches
+  - name: branches
 outputs:
   - name: output
 run:
