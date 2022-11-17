@@ -21,7 +21,8 @@ resources:
   - name: repo
     type: git-branches
     source:
-      uri: https://github.com/diwakar-k/cancourse_cicd.git
+      # uri: https://github.com/diwakar-k/cancourse_cicd.git
+      uri: git@github.com:diwakar-k/cancourse_cicd
 
 
 
