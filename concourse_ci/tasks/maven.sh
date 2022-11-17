@@ -11,8 +11,7 @@
 export NEW_VERSIONS=$(cat branches/branches)
 export OLD_VERSIONS=$(cat branches/removed)
 
-fly login -t your-concourse -c https://ci.osones.com -u concourse -p mysuperpassword
-
+fly login -t your-concourse -c http://localhost:8080 -u test -p test
 for version in $NEW_VERSIONS; do
   sed "s/___BRANCH___/$version/g" demo/.ci/pipeline-demo.tmpl > demo/.ci/pipeline-app.result
   echo "Create pipeline branch $version"
