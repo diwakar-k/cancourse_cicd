@@ -22,6 +22,7 @@ resources:
     type: git-branches
     source:
       uri: https://github.com/diwakar-k/concourse_test.git
+      branch : main
 
 
 
