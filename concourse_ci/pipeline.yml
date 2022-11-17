@@ -4,12 +4,12 @@
 #     source: 
 #       repository: jmkarthik/concourse-kubectl-resource
 #       tag: latest
-resources:
-  - name: test
-    type: git
-    source:
-      uri: https://github.com/diwakar-k/cancourse_cicd.git
-      branch: main
+# resources:
+#   - name: test
+#     type: git
+#     source:
+#       uri: https://github.com/diwakar-k/cancourse_cicd.git
+#       branch: main
 ############
 resource_types:
 - name: git-branches
@@ -89,7 +89,6 @@ jobs:
     serial: true
     plan:
       - get: repo
-      - get: test
         trigger: true
 
         # passed: [test]
