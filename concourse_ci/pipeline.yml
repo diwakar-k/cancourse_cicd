@@ -19,10 +19,10 @@ resource_types:
 
 resources:
   - name: repo
-    type: git-branches
+    type: git
     source:
       uri: https://github.com/diwakar-k/cancourse_cicd.git
-      branch : main
+
 
 
 
