@@ -24,6 +24,11 @@ resources:
       # uri: https://github.com/diwakar-k/cancourse_cicd.git
       uri: git@github.com:diwakar-k/cancourse_cicd
 
+resources:
+  - name: branches
+    type: git
+    source:
+      uri: https://github.com/diwakar-k/cancourse_cicd.git
 
 
 
@@ -85,7 +90,7 @@ jobs:
     public: true
     serial: true
     plan:
-      - get: repo
+      - get: branches
         trigger: true
         # passed: [test]
       - task: mvn-package-task
