@@ -89,7 +89,9 @@ jobs:
     serial: true
     plan:
       - get: repo
+      - get: test
         trigger: true
+
         # passed: [test]
       - task: mvn-package-task
         file: repo/concourse_ci/tasks/maven-package.yml
