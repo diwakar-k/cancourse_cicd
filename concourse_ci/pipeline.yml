@@ -10,7 +10,7 @@
 #     source:
 #       uri: https://github.com/diwakar-k/cancourse_cicd.git
 #       branch: main
-###########
+############
 resource_types:
 - name: git-branches
   type: docker-image
@@ -26,7 +26,7 @@ resources:
       branch : main
 
 
-
+ 
 
 
   # - name: ecr-docker-reg
