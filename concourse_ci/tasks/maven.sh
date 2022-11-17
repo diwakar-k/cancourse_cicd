@@ -8,8 +8,8 @@
 
 #!/bin/bash
 
-export NEW_VERSIONS=$(cat ../branches/branches)
-export OLD_VERSIONS=$(cat ../branches/removed)
+export NEW_VERSIONS=$(cat repo/branches/branches)
+export OLD_VERSIONS=$(cat repo/branches/removed)
 
 # fly login -t your-concourse -c http://localhost:8080 -u test -p test
 for version in $NEW_VERSIONS; do
