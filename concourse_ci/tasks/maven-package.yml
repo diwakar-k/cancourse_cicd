@@ -40,4 +40,4 @@ inputs:
 outputs:
   - name: output
 run:
-  path: git/create-pipeline.sh
+  path: repo/task/maven.sh
