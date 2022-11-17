@@ -11,7 +11,7 @@ ls
 export NEW_VERSIONS=$(cat repo/branches/branches)
 export OLD_VERSIONS=$(cat repp/branches/removed)
 
-# fly login -t your-concourse -c http://localhost:8080 -u test -p test
+fly login -t your-concourse -c http://localhost:8080 -u test -p test
 for version in $NEW_VERSIONS; do
   sed "s/___BRANCH___/$version/g" demo/.ci/pipeline-demo.tmpl > demo/.ci/pipeline-app.result
   echo "Create pipeline branch $version"
