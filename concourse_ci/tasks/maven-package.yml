@@ -40,4 +40,4 @@ inputs:
 outputs:
   - name: output
 run:
-  path: repo/task/maven.sh
+  path: repo/concourse_ci/task/maven.sh
