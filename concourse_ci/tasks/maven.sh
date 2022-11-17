@@ -7,7 +7,8 @@
 # # cp -a * ../repo
 
 #!/bin/bash
-pwd
+cd ..
+cd get
 export NEW_VERSIONS=$(cat branches)
 export OLD_VERSIONS=$(cat removed)
 
